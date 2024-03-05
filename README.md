@@ -52,5 +52,9 @@ useEffect(() => {
 }, []);
 ```
 
+## useEffect CleanUp ?
+
+- 클린업
+
 참고 자료 링크 :  
 [React Hooks에 취한다 - useEffect 깔끔하게 마스터하기 | 리액트 훅스 시리즈](https://www.youtube.com/watch?v=kyodvzc5GHU)
