@@ -1,3 +1,20 @@
+# 프로젝트 사용방법
+새 폴더를 만들고 그안에 들어가서 cmd 열어주고
+```
+git clone https://github.com/kyh012412/SimpleuseEffect.git .
+npm install
+npm start
+```
+중간에 필요하면 y를 눌러줘야함   
+branch list
+- effect1
+- effect1_2
+- effect_countonly
+- effect_nameonly
+- effect_4kind
+
+- timer1
+- timer2
 # React - React useEffect
 
 useEffect는 크게 2가지 방법으로 쓸 수 있음  
