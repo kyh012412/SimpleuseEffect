@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# React - React useEffect
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+useEffect는 크게 2가지 방법으로 쓸 수 있음  
+거시적인 형태는 useEffect 매개변수로 함수를 받음
 
-## Available Scripts
+```js
+useEffect(() => {
+  //작업
+});
+```
 
-In the project directory, you can run:
+## useEffect에 매개변수가 하나인 형태
 
-### `npm start`
+```js
+useEffect(() => {
+  //작업
+});
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 랜더링 될때 마다 실행됨
+- 컴포넌트가 다시 랜더링 될때 실행됨
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## useEffect에 매개변수가 두 개인 형태
 
-### `npm test`
+```js
+useEffect(() => {
+  //작업
+}, [value]);
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 컴포넌트가 맨 처음랜더링 될 때 실행됨
+- 두번째 매개변수가 바뀔 때마다 실행됨
 
-### `npm run build`
+### 그래서 최초에 한번만 실행하게 하려면 보통 두번째 매개변수로 빈 배열을 넣음
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```js
+useEffect(() => {
+  //작업
+}, []);
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 어떤 메서드를 정리작업을 하려면 useEffect내에 return으로 메서드를 주면 된다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```js
+useEffect(() => {
+  //구독...
+  return () => {
+    // 구독 해지...
+    // 해당 컴포넌트를 언마운트 될 때 작동할 기능들
+    // 소멸자 비슷한 느낌?
+  };
+}, []);
+```
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+참고 자료 링크 :  
+[React Hooks에 취한다 - useEffect 깔끔하게 마스터하기 | 리액트 훅스 시리즈](https://www.youtube.com/watch?v=kyodvzc5GHU)
