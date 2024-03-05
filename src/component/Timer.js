@@ -5,6 +5,12 @@ const Timer = (props) => {
     const timer = setInterval(() => {
       console.log('타이머 돌아가는중...');
     }, 1000);
+
+    //언 마운트 될때 실행할 함수들
+    return () => {
+      clearInterval(timer);
+      console.log('타이머가 종료되었습니다.');
+    };
   }, []);
 
   return (
