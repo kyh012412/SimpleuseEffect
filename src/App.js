@@ -15,12 +15,24 @@ function App() {
   };
 
   // 랜더링 될때마다 매번 실행됨
-  // 정확하게는 랜더링이 완료된 후에 작동되는 코드임
   useEffect(() => {
-    console.log(
-      '새로 랜더링이 되서 useEffect로 인해 실행된 로그출력~ count : ' + count
-    );
-  }, [name]);
+    console.log('매번 랜더링 1');
+  }); // 두번째 매개변수가 없어서 매번 실행됨
+
+  // 마운팅 + count가 변화할 때 마다 실행됨
+  useEffect(() => {
+    console.log('랜더링 2 count : ' + count);
+  }, [count]); //count가 바뀔때마다 실행됨
+
+  // 마운팅 + name이 변화할 때 마다 실행됨
+  useEffect(() => {
+    console.log('랜더링 3 name : ' + name);
+  }, [name]); //name이 바뀔때마다 실행됨
+
+  // 마운팅할때만 실행됨
+  useEffect(() => {
+    console.log('랜더링 4 empty');
+  }, []); // 최초 1회만 실행됨
 
   return (
     <div>
