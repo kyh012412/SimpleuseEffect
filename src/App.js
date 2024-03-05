@@ -20,7 +20,7 @@ function App() {
     console.log(
       '새로 랜더링이 되서 useEffect로 인해 실행된 로그출력~ count : ' + count
     );
-  });
+  }, [count]);
 
   return (
     <div>
